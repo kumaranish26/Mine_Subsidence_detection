@@ -21,17 +21,17 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
-        // Enables a simple in-memory broker so clients can subscribe to /topic/...
+
         config.enableSimpleBroker("/topic");
-        // Prefix for messages bound for methods annotated with @MessageMapping
+
         config.setApplicationDestinationPrefixes("/app");
     }
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        // Registers the endpoint your React dashboard connects to (/ws-telemetry)
+
         registry.addEndpoint(endpoint)
                 .setAllowedOriginPatterns(allowedOrigins)
-                .withSockJS(); // Fallback support if pure WebSocket isn't available
+                .withSockJS();
     }
 }

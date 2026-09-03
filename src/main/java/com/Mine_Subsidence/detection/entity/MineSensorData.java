@@ -33,7 +33,7 @@ public class MineSensorData {
     @Column(name = "pressure_kg", nullable = false)
     private Double pressureKg;
 
-    // Stores the exact server time the telemetry was processed
+
     @Column(name = "recorded_at", nullable = false, updatable = false)
     private LocalDateTime timestamp;
 }

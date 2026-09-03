@@ -12,11 +12,7 @@ import java.util.List;
 @Repository
 public interface SensorDataRepository extends JpaRepository<MineSensorData, Long> {
 
-    /**
-     * Custom query method for the historical "Pull" API.
-     * Spring Data JPA automatically translates this method name into a SQL query:
-     * SELECT * FROM sensor_telemetry WHERE recorded_at > ? ORDER BY recorded_at ASC;
-     */
+
     List<MineSensorData> findByTimestampAfterOrderByTimestampAsc(LocalDateTime startDate);
 
 }
